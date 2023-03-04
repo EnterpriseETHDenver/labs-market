@@ -25,9 +25,9 @@ class Point {
 }
 
 enum WaveColors {
-  Violet = '#e000cf',
-  Pink = '#ff4092',
-  Grey = '#8b98a9'
+  Violet = '#5fb359',
+  Pink = '#d80606',
+  Grey = '#eac146'
 }
 
 export class SvgWaves {
