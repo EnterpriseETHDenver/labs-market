@@ -1,7 +1,7 @@
 {
-  "siteTitle": "Ocean Market",
+  "siteTitle": "OpenLabs Market",
   "siteTagline": "A marketplace to find, publish and trade datasets in the Ocean Network.",
-  "siteUrl": "https://market.oceanprotocol.com",
+  "siteUrl": "https://www.labsmarket.ai",
   "siteImage": "/share.png",
   "copyright": "All Rights Reserved. Powered by ",
   "menu": [
@@ -12,6 +12,10 @@
     {
       "name": "Profile",
       "link": "/profile"
+    },
+    {
+      "name": "DAO",
+      "link": "https://www.labsdao.org/"
     }
   ],
   "announcement": "[Lock your OCEAN](https://df.oceandao.org/) to get veOCEAN, earn rewards and curate data.",
