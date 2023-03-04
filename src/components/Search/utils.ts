@@ -181,7 +181,7 @@ export async function addExistingParamsToUrl(
   excludedParams: string[]
 ): Promise<string> {
   const parsed = queryString.parse(location.search)
-  let urlLocation = '/search?'
+  let urlLocation = '/search?tags=labsmarket&'
   if (Object.keys(parsed).length > 0) {
     for (const queryParam in parsed) {
       if (!excludedParams.includes(queryParam)) {

@@ -60,23 +60,26 @@ export default function HomePage(): ReactElement {
         <Bookmarks />
       </section>
 
-      <Allocations />
+      {/* <Allocations /> */}
 
-      <SectionQueryResult
+      {/* <SectionQueryResult
         title="Highest veOCEAN Allocations"
         query={queryMostAllocation}
-      />
+      /> */}
 
-      <SectionQueryResult title="Most Sales" query={queryMostSales} />
+      {/* <SectionQueryResult title="Most Sales" query={queryMostSales} /> */}
       {/* <MostViews /> */}
-      <TopSales title="Publishers With Most Sales" />
-      <TopTags title="Top Tags By Sales" />
+      {/* <TopSales title="Publishers With Most Downloads" /> */}
+      {/* <TopTags title="Top Tags By Sales" /> */}
 
       <SectionQueryResult
         title="Recently Published"
         query={queryLatest}
         action={
-          <Button style="text" to="/search?sort=nft.created&sortOrder=desc">
+          <Button
+            style="text"
+            to="/search?tags=labsmarket&sort=nft.created&sortOrder=desc"
+          >
             All datasets and algorithms →
           </Button>
         }

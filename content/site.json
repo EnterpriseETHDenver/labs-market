@@ -1,7 +1,7 @@
 {
-  "siteTitle": "Ocean Market",
-  "siteTagline": "A marketplace to find, publish and trade datasets in the Ocean Network.",
-  "siteUrl": "https://market.oceanprotocol.com",
+  "siteTitle": "OpenLabs Market",
+  "siteTagline": "A marketplace to find, publish and trade research.",
+  "siteUrl": "https://www.labsmarket.ai",
   "siteImage": "/share.png",
   "copyright": "All Rights Reserved. Powered by ",
   "menu": [
@@ -12,9 +12,13 @@
     {
       "name": "Profile",
       "link": "/profile"
+    },
+    {
+      "name": "DAO",
+      "link": "https://www.labsdao.org/"
     }
   ],
-  "announcement": "[Lock your OCEAN](https://df.oceandao.org/) to get veOCEAN, earn rewards and curate data.",
+  "announcement": "Login using Web3Auth and use the faucets linked in the wallet tooltip to get testnet MATIC and OCEAN.",
   "warning": {
     "ctd": "Please note that Compute-to-Data is still in alpha phase."
   }

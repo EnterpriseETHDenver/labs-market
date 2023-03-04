@@ -7,17 +7,12 @@ import Conversion from '@shared/Price/Conversion'
 import { useWeb3 } from '@context/Web3'
 import { getOceanConfig } from '@utils/ocean'
 import styles from './Details.module.css'
+import { useWeb3Auth } from '@context/Web3Auth'
+import Link from 'next/link'
 
 export default function Details(): ReactElement {
-  const {
-    web3ProviderInfo,
-    web3Modal,
-    connect,
-    logout,
-    networkData,
-    networkId,
-    balance
-  } = useWeb3()
+  const { web3Auth, connect, logout, networkData, networkId, balance } =
+    useWeb3Auth()
   const { locale } = useUserPreferences()
 
   const [mainCurrency, setMainCurrency] = useState<string>()
@@ -33,7 +28,7 @@ export default function Details(): ReactElement {
     setMainCurrency(symbol)
 
     const oceanConfig = getOceanConfig(networkId)
-
+    console.log('balance', balance)
     oceanConfig &&
       setOceanTokenMetadata({
         address: oceanConfig.oceanTokenAddress,
@@ -46,9 +41,19 @@ export default function Details(): ReactElement {
       <ul>
         {Object.entries(balance).map(([key, value]) => (
           <li className={styles.balance} key={key}>
-            <span className={styles.symbol}>
-              {key === 'eth' ? mainCurrency : key.toUpperCase()}
-            </span>
+            <a
+              href={
+                key === 'eth'
+                  ? 'https://mumbaifaucet.com/'
+                  : 'https://faucet.mumbai.oceanprotocol.com/'
+              }
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className={styles.symbol}>
+                {key === 'eth' ? mainCurrency : key.toUpperCase()}
+              </span>
+            </a>
             <span className={styles.value}>
               {formatCurrency(Number(value), '', locale, false, {
                 significantFigures: 4
@@ -61,14 +66,17 @@ export default function Details(): ReactElement {
             />
           </li>
         ))}
-
         <li className={styles.actions}>
           <div title="Connected provider" className={styles.walletInfo}>
             <span className={styles.walletLogoWrap}>
-              <img className={styles.walletLogo} src={web3ProviderInfo?.logo} />
-              {web3ProviderInfo?.name}
+              <img
+                className={styles.walletLogo}
+                src="https://images.web3auth.io/web3auth-logo.svg"
+                alt="Wallet Provider Logo"
+              />
+              Web3Auth
             </span>
-            {web3ProviderInfo?.name === 'MetaMask' && (
+            {undefined === 'MetaMask' && (
               <AddToken
                 address={oceanTokenMetadata?.address}
                 symbol={oceanTokenMetadata?.symbol}
@@ -77,7 +85,7 @@ export default function Details(): ReactElement {
             )}
           </div>
           <p>
-            <Button
+            {/* <Button
               style="text"
               size="small"
               onClick={async () => {
@@ -86,7 +94,7 @@ export default function Details(): ReactElement {
               }}
             >
               Switch Wallet
-            </Button>
+            </Button> */}
             <Button
               style="text"
               size="small"
