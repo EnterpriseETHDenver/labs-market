@@ -50,9 +50,9 @@ export function generateNftMetadata(): NftMetadata {
   const imageData = `data:image/svg+xml,${encodeSvg(svg.outerHTML)}`
 
   const newNft: NftMetadata = {
-    name: 'Ocean Data NFT',
+    name: 'OpenLabs Market NFT',
     symbol: 'OCEAN-NFT',
-    description: `This NFT represents an asset in the Ocean Protocol v4 ecosystem.`,
+    description: `This NFT represents an asset in the OpenLabs / Ocean Protocol v4 ecosystem.`,
     external_url: 'https://market.oceanprotocol.com',
     background_color: '141414', // dark background
     image_data: imageData
@@ -153,7 +153,7 @@ export async function setNFTMetadataAndTokenURI(
   const encodedMetadata = Buffer.from(
     JSON.stringify({
       ...nftMetadata,
-      description: `${nftMetadata.description}\n\nView on Ocean Market: ${externalUrl}`,
+      description: `${nftMetadata.description}\n\nView on OpenLabs Market: ${externalUrl}`,
       external_url: externalUrl
     })
   ).toString('base64')
