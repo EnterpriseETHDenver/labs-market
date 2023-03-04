@@ -218,7 +218,7 @@ function Web3AuthProvider({ children }: { children: ReactNode }): ReactElement {
       //     'https://uploads-ssl.webflow.com/63f3d7ac06d38e1166925652/63f3dd6eb23ebf5771d44af2_LabsDAOLogoBlackCourier.png'
       // }
 
-      const authMode = process.env.NODE_ENV === 'production' ? 'WALLET' : 'DAPP'
+      const authMode = 'DAPP'
       console.log(clientId)
       const web3AuthInstance = new Web3Auth({
         clientId,
