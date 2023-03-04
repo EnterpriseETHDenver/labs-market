@@ -39,6 +39,7 @@ interface Web3AuthInterface {
   networkData: EthereumListsChain
   block: number
   isTestnet: boolean
+  web3Loading: boolean
   isSupportedOceanNetwork: boolean
   approvedBaseTokens: TokenInfo[]
   connect: () => Promise<void>
@@ -67,6 +68,7 @@ function Web3AuthProvider({ children }: { children: ReactNode }): ReactElement {
   const [isTestnet, setIsTestnet] = useState<boolean>()
   const [accountId, setAccountId] = useState<string>()
   const [accountEns, setAccountEns] = useState<string>()
+  const [web3Loading, setWeb3Loading] = useState<boolean>(true)
   const [balance, setBalance] = useState<UserBalance>({
     eth: '0'
   })
@@ -78,6 +80,12 @@ function Web3AuthProvider({ children }: { children: ReactNode }): ReactElement {
   // -----------------------------------
   const connect = useCallback(async () => {
     try {
+      if (!web3Auth) {
+        setWeb3Loading(false)
+        return
+      }
+
+      setWeb3Loading(true)
       LoggerInstance.log('[web3] Connecting Web3...')
       const provider = await web3Auth.connect()
       setWeb3Provider(provider)
@@ -107,6 +115,7 @@ function Web3AuthProvider({ children }: { children: ReactNode }): ReactElement {
       setUserEmail(userInfo.email)
       LoggerInstance.log('[web3auth] getUserInfo', userInfo)
     } catch (error) {
+      setWeb3Loading(false)
       LoggerInstance.error('[web3] Error: ', error.message)
     }
   }, [web3Auth])
@@ -185,6 +194,7 @@ function Web3AuthProvider({ children }: { children: ReactNode }): ReactElement {
   // -----------------------------------
   useEffect(() => {
     if (web3Auth) {
+      setWeb3Loading(false)
       return
     }
 
@@ -404,6 +414,7 @@ function Web3AuthProvider({ children }: { children: ReactNode }): ReactElement {
         networkData,
         block,
         isTestnet,
+        web3Loading,
         isSupportedOceanNetwork,
         approvedBaseTokens,
         connect,

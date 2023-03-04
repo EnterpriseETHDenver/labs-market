@@ -43,7 +43,7 @@ function Row({
   sign?: string
   type?: string
 }) {
-  const { isSupportedOceanNetwork } = useWebAuth()
+  const { isSupportedOceanNetwork } = useWeb3Auth()
 
   return (
     <div className={styles.priceRow}>
