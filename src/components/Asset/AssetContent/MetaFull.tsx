@@ -32,6 +32,18 @@ export default function MetaFull({ ddo }: { ddo: Asset }): ReactElement {
     return <span>{`${image}:${tag}`}</span>
   }
 
+  function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+
+  function randomDecimal() {
+    return randomNumber(0, 10) * 0.1
+  }
+
+  function randomReputationScore() {
+    return randomNumber(3, 5) + randomDecimal()
+  }
+
   return ddo ? (
     <div className={styles.metaFull}>
       {!isInPurgatory && (
@@ -40,6 +52,10 @@ export default function MetaFull({ ddo }: { ddo: Asset }): ReactElement {
       <MetaItem
         title="Owner"
         content={<Publisher account={ddo?.nft?.owner} />}
+      />
+      <MetaItem
+        title="Reputation Score (/5)"
+        content={randomReputationScore()}
       />
       {assetState !== 'Active' && (
         <MetaItem title="Asset State" content={assetState} />
