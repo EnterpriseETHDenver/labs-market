@@ -18,7 +18,7 @@
       "link": "https://www.labsdao.org/"
     }
   ],
-  "announcement": "OpenLabs Market & LabsDAO are experimental projects. Use at your own risk.",
+  "announcement": "Login using Web3Auth and use the faucets linked in the wallet tooltip to get testnet MATIC and OCEAN.",
   "warning": {
     "ctd": "Please note that Compute-to-Data is still in alpha phase."
   }
