@@ -122,7 +122,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/oceanprotocol/market"
+    "url": "https://github.com/EnterpriseETHDenver/labs-market"
   },
   "engines": {
     "node": "18"
