@@ -200,7 +200,7 @@ function Web3AuthProvider({ children }: { children: ReactNode }): ReactElement {
 
     async function init() {
       const clientId =
-        'BKLATF5O6ppqgGZszTlrfwMnTABUU_xeeRArCNVQSFEIG4u-gGDlHSKCp3QynIqG8X37Dch6SjIHi1CyJD8UQ8g' // get from https://dashboard.web3auth.io
+        'BMv_2jK_lGq8m2Eg39Rsb7rXoa8XL-nS7xMoaz0pnWyqa8V5XZxWc9WbEoexLQbcaCI2qI77fZbmUGPyvi58NyU' // get from https://dashboard.web3auth.io
 
       const chainConfig = {
         chainNamespace: CHAIN_NAMESPACES.EIP155,
